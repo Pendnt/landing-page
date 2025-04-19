@@ -22,7 +22,7 @@ export default function MobileMenu() {
             <span className="sr-only">Toggle menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <SheetContent side="top" className="">
           <div className="flex flex-col gap-6 mt-10">
             <Link
               href="#features"

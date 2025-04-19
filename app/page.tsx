@@ -65,7 +65,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] opacity-20 blur-xl rounded-3xl"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
                 <Image
                   src="/placeholder.svg"
@@ -156,7 +156,7 @@ export default function Home() {
               </div>
             </div>
             <div className="order-1 lg:order-2 relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] opacity-20 blur-xl rounded-3xl"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
                 <Image
                   src="/placeholder.svg"
@@ -238,22 +238,22 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                credits: "10",
+                credits: "1",
                 price: "$199",
-                perCredit: "$19.90 per credit",
+                perCredit: "$199.00 per credit",
                 features: ["1 user per day", "Full CRM integration", "Basic analytics"],
               },
               {
-                credits: "50",
+                credits: "5",
                 price: "$899",
-                perCredit: "$17.98 per credit",
+                perCredit: "$179.80 per credit",
                 features: ["1 user per day", "Full CRM integration", "Advanced analytics", "Priority support"],
                 popular: true,
               },
               {
-                credits: "200",
+                credits: "20",
                 price: "$2,999",
-                perCredit: "$14.99 per credit",
+                perCredit: "$149.9 per credit",
                 features: [
                   "1 user per day",
                   "Full CRM integration",
@@ -265,28 +265,30 @@ export default function Home() {
             ].map((plan, index) => (
               <Card
                 key={index}
-                className={`bg-white border-gray-200 p-8 relative shadow-md ${plan.popular ? "border-[#FF7A5F]" : ""}`}
+                className={`flex flex-col justify-between bg-white border-gray-200 p-8 relative shadow-md ${plan.popular ? "border-[#FF7A5F]" : ""}`}
               >
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-[#FF7A5F] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                     MOST POPULAR
                   </div>
                 )}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2 text-black">{plan.credits} credits</h3>
-                  <div className="flex items-end gap-2 mb-1">
-                    <span className="text-3xl font-bold text-black">{plan.price}</span>
+                <div>
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold mb-2 text-black">{plan.credits} credits</h3>
+                    <div className="flex items-end gap-2 mb-1">
+                      <span className="text-3xl font-bold text-black">{plan.price}</span>
+                    </div>
+                    <p className="text-gray-500 text-sm">{plan.perCredit}</p>
                   </div>
-                  <p className="text-gray-500 text-sm">{plan.perCredit}</p>
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <Check className="h-5 w-5 text-[#FF7A5F]" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <Check className="h-5 w-5 text-[#FF7A5F]" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
                 <Button
                   className={`w-full ${
                     plan.popular
@@ -348,7 +350,7 @@ export default function Home() {
               </p>
 
               <div className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col items-center sm:flex-row gap-4">
                   <input
                     type="email"
                     placeholder="Enter your email"
