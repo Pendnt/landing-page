@@ -7,6 +7,7 @@ import { ArrowRight, Check, Mic, RefreshCw, Zap } from "lucide-react"
 
 // Import the MobileMenu component at the top of the file
 import MobileMenu from "@/components/mobile-menu"
+import DraggablePendant from "@/components/draggable_pendant"
 
 export default function Home() {
   return (
@@ -69,13 +70,15 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
-                <Image
+              {/*}<Image
                   src="/placeholder.svg"
                   alt="Pendnt Logo Mark"
                   width={500}
                   height={500}
                   className="w-full h-auto"
-                />
+                />*/}
+
+                <DraggablePendant />              
               </div>
             </div>
           </div>
