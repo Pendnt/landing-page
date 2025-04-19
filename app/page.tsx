@@ -12,10 +12,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#f0f0f0] text-black">
       {/* Navbar */}
-      <header className="container mx-auto py-6 px-4 md:px-6">
+      <header id="nav" className="container mx-auto py-6 px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Image src="/images/pendnt-logo.svg" alt="Pendnt Logo" width={180} height={50} priority />
+            <Link href="#" className="transition-colors">
+              <Image src="/images/pendnt-logo.svg" alt="Pendnt Logo" width={180} height={50} priority />
+            </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#features" className="text-gray-600 hover:text-black transition-colors" scroll={false}>
@@ -373,16 +375,18 @@ export default function Home() {
       <footer className="container mx-auto py-12 px-4 md:px-6 border-t border-gray-200">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-6 md:mb-0">
-            <Image src="/images/pendnt-logo.svg" alt="Pendnt Logo" width={120} height={35} />
+            <Link href="#nav" className="transition-colors">
+              <Image src="/images/pendnt-logo.svg" alt="Pendnt Logo" width={120} height={35} />
+            </Link>
           </div>
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            <Link href="#privacy" className="text-gray-600 hover:text-black transition-colors">
               Privacy
             </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            <Link href="#contact" className="text-gray-600 hover:text-black transition-colors">
               Contact
             </Link>
-            <Link href="#" className="text-gray-600 hover:text-black transition-colors">
+            <Link href="#terms" className="text-gray-600 hover:text-black transition-colors">
               Terms
             </Link>
           </div>
