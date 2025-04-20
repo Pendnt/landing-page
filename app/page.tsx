@@ -268,10 +268,10 @@ export default function Home() {
             ].map((plan, index) => (
               <Card
                 key={index}
-                className={`flex flex-col justify-between bg-white border-gray-200 p-8 relative shadow-md ${plan.popular ? "border-[#FF7A5F]" : ""}`}
+                className={`flex flex-col justify-between bg-white border-gray-200 p-8 relative shadow-md overflow-hidden ${plan.popular ? "border-[#FF7A5F]" : ""}`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-[#FF7A5F] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                  <div className="absolute top-0 right-0 bg-[#FF7A5F] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                     MOST POPULAR
                   </div>
                 )}
