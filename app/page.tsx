@@ -70,15 +70,13 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
-              {/*}<Image
-                  src="/placeholder.svg"
+              <Image
+                  src="/images/pendant-3d-render.png"
                   alt="Pendnt Logo Mark"
                   width={500}
                   height={500}
                   className="w-full h-auto"
-                />*/}
-
-                <DraggablePendant />              
+              />
               </div>
             </div>
           </div>
@@ -151,7 +149,7 @@ export default function Home() {
                   },
                 ].map((feature, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="mt-1 bg-[#FF7A5F]/10 p-2 rounded-full">{feature.icon}</div>
+                    <div className="mt-1 h-fit bg-[#FF7A5F]/10 p-2 rounded-full">{feature.icon}</div>
                     <div>
                       <h3 className="font-semibold text-lg text-black">{feature.title}</h3>
                       <p className="text-gray-600">{feature.description}</p>
@@ -258,7 +256,7 @@ export default function Home() {
               {
                 credits: "20",
                 price: "$2,999",
-                perCredit: "$149.9 per credit",
+                perCredit: "$149.90 per credit",
                 features: [
                   "1 user per day",
                   "Full CRM integration",
@@ -315,32 +313,6 @@ export default function Home() {
               </Link>{" "}
               for custom pricing.
             </p>
-          </div>
-        </section>
-
-        {/* Market & Credibility */}
-        <section className="container mx-auto py-20 px-4 md:px-6">
-          <div className="text-center mb-16">
-            <Badge className="mb-4 bg-[#FF7A5F]/10 text-[#FF7A5F] hover:bg-[#FF7A5F]/20">Market Opportunity</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">A $15.8B Market, Ready for Change</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              The trade show industry is massive and ripe for innovation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-white border-gray-200 p-8 shadow-md">
-              <div className="text-4xl mb-4">🎯</div>
-              <h3 className="text-2xl font-bold mb-2 text-black">$15.8B</h3>
-              <p className="text-gray-600 mb-4">U.S. Trade Show Market (2024)</p>
-              <p className="text-xs text-gray-400">Source: Statista</p>
-            </Card>
-            <Card className="bg-white border-gray-200 p-8 shadow-md">
-              <div className="text-4xl mb-4">🌍</div>
-              <h3 className="text-2xl font-bold mb-2 text-black">$2.79B</h3>
-              <p className="text-gray-600 mb-4">Lead Retrieval Software by 2030</p>
-              <p className="text-xs text-gray-400">Source: VirtueMR</p>
-            </Card>
           </div>
         </section>
 
