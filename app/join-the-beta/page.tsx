@@ -172,7 +172,12 @@ function JoinBeta() {
             {/* Form section */}
             <Card className="max-w-3xl mx-auto p-8 md:p-12 bg-white shadow-lg">
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form 
+                  onSubmit={form.handleSubmit(onSubmit)} 
+                  className="space-y-8"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
