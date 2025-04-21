@@ -99,15 +99,6 @@ function JoinBeta() {
     }
   }, [])
 
-  if (isSubmitted) {
-    return (
-      <div className="max-w-md mx-auto text-center p-4">
-        <h2 className="text-2xl font-semibold">Thank you!</h2>
-        <p>We’ve received your request and will be in touch shortly.</p>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-[#f0f0f0] text-black">
       {/* Header */}
