@@ -111,16 +111,6 @@ function JoinBeta() {
       </header>
 
       <main className="container mx-auto py-12 px-4 md:px-6">
-        {/* Back button */}
-        <div className="mb-8">
-          <Button variant="ghost" size="sm" className="text-gray-600" asChild>
-            <Link href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Link>
-          </Button>
-        </div>
-
         {isSubmitted ? (
           // Success state
           <Card className="max-w-3xl mx-auto p-8 md:p-12 bg-white shadow-lg">
@@ -148,6 +138,16 @@ function JoinBeta() {
         ) : (
           // Form state
           <>
+            {/* Back button */}
+            <div className="mb-8">
+              <Button variant="ghost" size="sm" className="text-gray-600" asChild>
+                <Link href="/">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Home
+                </Link>
+              </Button>
+            </div>
+
             {/* Hero section */}
             <div className="text-center mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Join the Pendnt Beta Program</h1>
