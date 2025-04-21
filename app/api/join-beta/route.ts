@@ -23,14 +23,61 @@ const schema = z.object({
 })
 
 export async function POST(request: Request) {
+  // parse & validate incoming JSON
   const body = await request.json();
   const result = schema.safeParse(body);
   if (!result.success) {
-    return NextResponse.json({ errors: result.error.flatten() }, { status: 400 });
+    return NextResponse.json(
+      { errors: result.error.flatten() },
+      { status: 400 }
+    );
   }
+  const data = result.data;
 
-  console.log("beta signup:", result.data);
-  // e.g. await sendToCRM(result.data)
+  // build HubSpot payload
+  const properties: Record<string, string> = {
+    email: data.email,
+    firstname: data.firstName,
+    lastname: data.lastName,
+  };
+  if (data.company) properties.company = data.company;
+  if (data.jobTitle) properties.jobtitle = data.jobTitle;
+  if (data.currentSolution)
+    properties.hs_lead_status = data.currentSolution;
 
-  return NextResponse.json({ message: "ok" });
+  try {
+    // POST to HubSpot
+    const hubspotRes = await fetch(
+      "https://api.hubapi.com/crm/v3/objects/contacts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.HUBSPOT_TOKEN}`,
+        },
+        body: JSON.stringify({ properties }),
+      }
+    );
+
+    if (!hubspotRes.ok) {
+      const text = await hubspotRes.text();
+      console.error("HubSpot error:", text);
+      return NextResponse.json(
+        { error: "HubSpot API error", details: text },
+        { status: hubspotRes.status }
+      );
+    }
+
+    const hubspotBody = await hubspotRes.json();
+    console.log("Created HubSpot contact:", hubspotBody.id);
+
+    // return success to the client
+    return NextResponse.json({ message: "ok" }, { status: 200 });
+  } catch (err: any) {
+    console.error("Unexpected error:", err);
+    return NextResponse.json(
+      { error: err.message || "Unknown error" },
+      { status: 500 }
+    );
+  }
 }
