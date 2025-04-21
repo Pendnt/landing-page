@@ -7,7 +7,7 @@ import { ArrowRight, Check, Mic, RefreshCw, Zap } from "lucide-react"
 
 // Import the MobileMenu component at the top of the file
 import MobileMenu from "@/components/mobile-menu"
-import DraggablePendant from "@/components/draggable_pendant"
+import JoinBetaForm from "@/components/join-beta-card"
 
 export default function Home() {
   return (
@@ -32,8 +32,13 @@ export default function Home() {
             </Link>
           </nav>
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] text-white hover:opacity-90 transition-opacity">
-              Join the Beta
+            <Button 
+              className="bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] text-white hover:opacity-90 transition-opacity"
+              asChild
+            >
+              <Link href="/join-the-beta">
+                Join the Beta
+              </Link>
             </Button>
           </div>
           <MobileMenu />
@@ -59,11 +64,21 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] text-white hover:opacity-90 transition-opacity"
+                  asChild
                 >
-                  Join the Beta <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link href="/join-the-beta">
+                    Join the Beta <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-gray-300 text-black hover:bg-gray-100">
-                  Learn More
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-gray-300 text-black hover:bg-gray-100"
+                  asChild
+                >
+                  <Link href="/learn-more">
+                    Learn More
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -326,51 +341,11 @@ export default function Home() {
                 were.
               </p>
 
-              <div className="max-w-md mx-auto">
-                <div className="flex flex-col items-center sm:flex-row gap-4">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="flex-1 px-4 py-3 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF7A5F] focus:border-transparent"
-                  />
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] text-white hover:opacity-90 transition-opacity"
-                  >
-                    Join the Beta
-                  </Button>
-                </div>
-              </div>
+              <JoinBetaForm />
             </div>
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="container mx-auto py-12 px-4 md:px-6 border-t border-gray-200">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 mb-6 md:mb-0">
-            <Link href="#nav" className="transition-colors">
-              <Image src="/images/pendnt-logo.svg" alt="Pendnt Logo" width={120} height={35} />
-            </Link>
-          </div>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-            <Link href="#privacy" className="text-gray-600 hover:text-black transition-colors">
-              Privacy
-            </Link>
-            <Link href="#contact" className="text-gray-600 hover:text-black transition-colors">
-              Contact
-            </Link>
-            <Link href="#terms" className="text-gray-600 hover:text-black transition-colors">
-              Terms
-            </Link>
-          </div>
-        </div>
-        <div className="mt-8 text-center text-gray-600 text-sm">
-          <p>Conversations remembered.</p>
-          <p className="mt-2">© {new Date().getFullYear()} Pendnt. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }
