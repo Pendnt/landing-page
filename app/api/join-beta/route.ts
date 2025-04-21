@@ -68,6 +68,9 @@ export async function POST(request: Request) {
     if (!hubspotRes.ok) {
       const text = await hubspotRes.text();
       console.error("HubSpot error:", text);
+      if (text.includes("Contact already exists.")) {
+        return NextResponse.json({ message: "ok" }, { status: 200 });
+      }
       return NextResponse.json(
         { error: "HubSpot API error", details: text },
         { status: hubspotRes.status }
@@ -81,9 +84,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "ok" }, { status: 200 });
   } catch (err: any) {
     console.error("Unexpected error:", err);
-    if (err.message.contains("Contact already exists.")) {
-      return NextResponse.json({ message: "ok" }, { status: 200 });
-    }
     return NextResponse.json(
       { error: err.message || "Unknown error" },
       { status: 500 }
