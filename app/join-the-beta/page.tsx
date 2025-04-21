@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -41,7 +41,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>
 
-export default function JoinBeta() {
+function JoinBeta() {
   const searchParams = useSearchParams();
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -413,5 +413,13 @@ export default function JoinBeta() {
         )}
       </main>
     </div>
+  )
+}
+
+export default function JoinBetaWrapped() {
+  return (
+    <Suspense>
+      <JoinBeta />
+    </Suspense>
   )
 }
