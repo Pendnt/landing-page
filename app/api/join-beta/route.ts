@@ -40,13 +40,13 @@ export async function POST(request: Request) {
     firstname: data.firstName,
     lastname: data.lastName,
   };
-  if (data.company)      properties.company = data.company;
-  if (data.jobTitle)     properties.jobtitle = data.jobTitle;
-  if (data.companySize)  properties.company_size = data.companySize;
+  if (data.company)     properties.company = data.company;
+  if (data.jobTitle)    properties.jobtitle = data.jobTitle;
+  if (data.companySize) properties.company_size = data.companySize;
   if (data.tradeShowsPerYear)
-                          properties.trade_shows_per_year = data.tradeShowsPerYear;
+    properties.trade_shows_per_year = data.tradeShowsPerYear;
   if (data.currentSolution)
-                          properties.hs_lead_status = data.currentSolution;
+    properties.hs_lead_status = data.currentSolution;
   if (data.useCase)      properties.use_case = data.useCase;
 
   properties.referral_method = "website_join_beta_form";
