@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter, useSearchParams } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import * as z from "zod"
 import { ArrowLeft, CheckCircle2 } from "lucide-react"
 
@@ -66,12 +66,12 @@ function JoinBeta() {
   })
 
   // Form submission handler
-  const onSubmit: SubmitHandler<FormValues> = async (values) => {
+  const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     setIsSubmitting(true);
-    setErrorMsg(null);
+    setErrorMsg("");
 
     try {
-      const res = await fetch("/.netlify/functions/join-beta", {
+      const res = await fetch("/api/join-beta", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -84,9 +84,6 @@ function JoinBeta() {
 
       // success!
       setIsSubmitted(true);
-
-      // optional redirect after delay
-      // setTimeout(() => window.location.replace("/thank-you"), 2000);
     } catch (err: any) {
       console.error("Submission error:", err);
       setErrorMsg(err.message || "Something went wrong");
@@ -175,9 +172,6 @@ function JoinBeta() {
                 <form 
                   onSubmit={form.handleSubmit(onSubmit)} 
                   className="space-y-8"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  name="join-beta"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
