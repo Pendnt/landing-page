@@ -177,6 +177,7 @@ function JoinBeta() {
                   className="space-y-8"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
+                  name="join-beta"
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
