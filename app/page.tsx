@@ -205,7 +205,7 @@ export default function Home() {
                   step: "01",
                   title: "Wear the pendant",
                   description: "No setup required. Just put it on and you're ready to go.",
-                  image: "/placeholder.svg?height=200&width=300",
+                  image: "/images/wearing-pendnt.jpg",
                 },
                 {
                   step: "02",
