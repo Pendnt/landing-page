@@ -83,7 +83,7 @@ export default function Contact() {
               className="bg-gradient-to-r from-[#FF7A5F] to-[#FFA05E] text-white hover:opacity-90 transition-opacity"
               asChild
             >
-              <Link href="/join-beta">Join the Beta</Link>
+              <Link href="/join-the-beta">Join the Beta</Link>
             </Button>
           </div>
         </div>
