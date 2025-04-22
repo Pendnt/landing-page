@@ -152,8 +152,7 @@ function JoinBeta() {
             <div className="text-center mb-12">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Join the Pendnt Beta Program</h1>
               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                Be among the first to experience how Pendnt transforms trade show lead capture. Complete the form below
-                to apply for our exclusive beta program.
+                Be among the first to experience how Pendnt transforms trade show lead capture. Complete the form below to apply for our exclusive beta program.
               </p>
             </div>
 

@@ -70,9 +70,9 @@ export default function LearnMore() {
                     <Zap className="h-5 w-5 text-[#FF7A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">On-Device Processing</h3>
+                    <h3 className="font-semibold text-lg">On-Phone Processing</h3>
                     <p className="text-gray-600">
-                      Our custom AI chip processes speech in real-time, extracting contact information, company details, and conversation context without requiring an internet connection.
+                      Our app processes speech in real-time, extracting contact information, company details, and conversation context without requiring an internet connection.
                     </p>
                   </div>
                 </div>
@@ -502,9 +502,9 @@ export default function LearnMore() {
                     <Shield className="h-5 w-5 text-[#FF7A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">On-Device Processing</h3>
+                    <h3 className="font-semibold text-lg">On-Phone Processing</h3>
                     <p className="text-gray-600">
-                      Conversations are processed locally on the device, not sent to the cloud, ensuring your sensitive business discussions remain private.
+                      Conversations are transcribed locally on your phone, sent to the cloud for processing with <b className="text-[#FF7A5F] font-medium">no data stored</b>, ensuring your sensitive business discussions remain private.
                     </p>
                   </div>
                 </div>
@@ -517,18 +517,6 @@ export default function LearnMore() {
                     <h3 className="font-semibold text-lg">End-to-End Encryption</h3>
                     <p className="text-gray-600">
                       All data transmitted between Pendnt and your CRM is protected with enterprise-grade encryption.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="h-fit mt-1 bg-[#FF7A5F]/10 p-2 rounded-full">
-                    <Shield className="h-5 w-5 text-[#FF7A5F]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">GDPR & CCPA Compliant</h3>
-                    <p className="text-gray-600">
-                      Our data handling practices comply with global privacy regulations, giving you peace of mind.
                     </p>
                   </div>
                 </div>
@@ -578,19 +566,23 @@ export default function LearnMore() {
               {[
                 {
                   question: "How accurate is Pendnt's voice recognition?",
-                  answer: "Pendnt uses whisper.cpp to transcribe audio with a 90% accuracy rate."
+                  answer: <>Pendnt uses <Link href="https://github.com/ggml-org/whisper.cpp" className="text-[#FF7A5F] hover:underline" target="_blank">whisper.cpp</Link> to transcribe audio with a 90% accuracy rate.</>
                 },
                 {
                   question: "Which CRM systems does Pendnt integrate with?",
-                  answer: "Pendnt integrates with all major CRM systems including Salesforce, HubSpot, Zoho, Microsoft Dynamics, and more. We also offer a REST API for custom integrations with proprietary systems."
+                  answer: <>
+                    Pendnt integrates with all major CRM systems including Salesforce, HubSpot, Zoho, Microsoft Dynamics, and more. We also offer a REST API for custom integrations with proprietary systems. 
+                    <br />
+                    <Link href="/contact#" className="text-[#FF7A5F] hover:underline">Contact us</Link> to learn more.
+                  </>
                 },
                 {
                   question: "How long does the battery last?",
-                  answer: "Pendnt's battery lasts for up to 12 hours of active use, easily covering a full day at a trade show. The device comes with a compact charging case that provides three additional full charges, ensuring you never run out of power during multi-day events."
+                  answer: "Pendnt's battery lasts for up to 12 hours of active use, easily covering a full day at a trade show."
                 },
                 {
                   question: "Is there a mobile app for Pendnt?",
-                  answer: "Yes, Pendnt comes with a companion mobile app for iOS and Android. The app allows you to review captured leads, edit information before syncing to your CRM, view analytics, and manage device settings."
+                  answer: "Yes, Pendnt requires you to use a companion mobile app for iOS and Android. The app allows you to review captured leads, edit information before syncing to your CRM, view analytics, and manage device settings."
                 },
                 {
                   question: "Can multiple team members use the same Pendnt account?",
@@ -602,7 +594,7 @@ export default function LearnMore() {
                 },
                 {
                   question: "Does Pendnt work in languages other than English?",
-                  answer: "Currently, Pendnt supports English, Spanish, French, German, and Japanese, with more languages coming soon. The AI is trained to recognize accented English from speakers of many different language backgrounds."
+                  answer: "Currently, Pendnt only supports English."
                 },
               ].map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>

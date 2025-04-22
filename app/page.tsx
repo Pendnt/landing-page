@@ -138,7 +138,7 @@ export default function Home() {
         {/* Solution Section */}
         <section id="features" className="container mx-auto py-20 px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
+            <div className="order-1">
               <Badge className="mb-4 bg-[#FF7A5F]/10 text-[#FF7A5F] hover:bg-[#FF7A5F]/20">The Solution</Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">Meet Pendnt</h2>
               <blockquote className="border-l-4 border-[#FF7A5F] pl-4 mb-8 italic text-xl text-gray-700">
@@ -173,15 +173,15 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="order-1 lg:order-2 relative">
+            <div className="order-2 relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
                 <Image
-                  src="/placeholder.svg"
-                  alt="Pendnt Logo Mark"
+                  src="/images/pendnt-phone-hubspot.png"
+                  alt="Pendnt connects to your phone and exports to your crm"
                   width={400}
                   height={400}
-                  className="w-full h-auto"
+                  className="w-full h-auto p-16"
                 />
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function Home() {
                   step: "03",
                   title: "Sync to CRM",
                   description: "Context, names, companies captured automatically.",
-                  image: "/placeholder.svg?height=200&width=300",
+                  image: "/images/pendnt-crms.png",
                 },
               ].map((item, index) => (
                 <div key={index} className="relative">
@@ -256,20 +256,20 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                credits: "1",
+                credits: 1,
                 price: "$199",
                 perCredit: "$199.00 per credit",
                 features: ["1 user per day", "Full CRM integration", "Basic analytics"],
               },
               {
-                credits: "5",
+                credits: 5,
                 price: "$899",
                 perCredit: "$179.80 per credit",
                 features: ["1 user per day", "Full CRM integration", "Advanced analytics", "Priority support"],
                 popular: true,
               },
               {
-                credits: "20",
+                credits: 20,
                 price: "$2,999",
                 perCredit: "$149.90 per credit",
                 features: [
@@ -292,7 +292,7 @@ export default function Home() {
                 )}
                 <div>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold mb-2 text-black">{plan.credits} credits</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-black">{plan.credits} credit{plan.credits > 1 ? "s" : ""}</h3>
                     <div className="flex items-end gap-2 mb-1">
                       <span className="text-3xl font-bold text-black">{plan.price}</span>
                     </div>
@@ -323,7 +323,7 @@ export default function Home() {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Team plans available.{" "}
-              <Link href="#" className="text-[#FF7A5F] hover:underline">
+              <Link href="/contact#" className="text-[#FF7A5F] hover:underline">
                 Contact us
               </Link>{" "}
               for custom pricing.

@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/#privacy" className="text-gray-600 hover:text-black transition-colors">
               Privacy
             </Link>
-            <Link href="/#contact" className="text-gray-600 hover:text-black transition-colors">
+            <Link href="/contact#" className="text-gray-600 hover:text-black transition-colors">
               Contact
             </Link>
             <Link href="/#terms" className="text-gray-600 hover:text-black transition-colors">
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-gray-600 text-sm">
-          <p>Conversations remembered.</p>
+          <p>Turn conversations into leads.</p>
           <p className="mt-2">© {new Date().getFullYear()} Pendnt. All rights reserved.</p>
         </div>
       </footer>
