@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 text-center text-gray-600 text-sm">
-          <p>Turn conversations into leads.</p>
+          <p>Turn conversations into customers.</p>
           <p className="mt-2">© {new Date().getFullYear()} Pendnt. All rights reserved.</p>
         </div>
       </footer>
