@@ -15,7 +15,7 @@ export default function Footer() {
               Privacy
             </Link>
             <Link href="/contact#" className="text-gray-600 hover:text-black transition-colors">
-              Contact
+              Contact Us
             </Link>
             <Link href="/#terms" className="text-gray-600 hover:text-black transition-colors">
               Terms
