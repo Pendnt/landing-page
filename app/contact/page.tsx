@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import * as z from "zod"
 import { ArrowLeft, CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 
@@ -31,11 +31,13 @@ const formSchema = z.object({
   }),
 })
 
+type FormValues = z.infer<typeof formSchema>
+
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   // Initialize form
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -47,13 +49,26 @@ export default function Contact() {
   })
 
   // TODO
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
 
-    setIsSubmitted(true)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
 
-    form.reset()
-  }
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || "Failed to submit");
+      }
+
+      // success!
+      setIsSubmitted(true);
+    } catch (err: any) {
+      console.error("Submission error:", err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#f0f0f0] text-black">
