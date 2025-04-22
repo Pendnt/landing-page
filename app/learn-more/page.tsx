@@ -278,13 +278,14 @@ export default function LearnMore() {
               },
             ].map((item, index) => (
               <Card key={index} className="bg-white border-gray-200 overflow-hidden shadow-md">
+                {/* TODO: ADD IMAGES FOR EVERYTHING. 
                 <div className="h-40 overflow-hidden">
                   <img
                     src={item.image || "/placeholder.svg"}
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </div> */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
