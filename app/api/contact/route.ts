@@ -36,10 +36,12 @@ export async function POST(request: Request) {
         from: `${data.name} <contact@${process.env.MAILGUN_DOMAIN!}>`,
         to: process.env.MY_RECEIVING_EMAIL!,
         subject: `Pendnt Contact Form: ${data.subject}`,
-        text: data.message,
+        text: `${data.subject}\n\n${data.message}\n\nFrom: ${data.email}`,
         html: `
             <h1>${data.subject}</h1>
             <p>${data.message}</p>
+            <hr />
+            <p>From: ${data.email}</p>
         `
     })
 
