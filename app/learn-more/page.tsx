@@ -132,7 +132,7 @@ export default function LearnMore() {
                 </div>
                 <div className="md:col-span-3">
                   <Image
-                    src="/placeholder.svg?height=250&width=400"
+                    src="/images/wearing-pendnt.jpg"
                     alt="Wearing Pendnt"
                     width={400}
                     height={250}
@@ -220,7 +220,7 @@ export default function LearnMore() {
                 </div>
                 <div className="md:col-span-3">
                   <Image
-                    src="/placeholder.svg?height=250&width=400"
+                    src="/images/pendnt-crms.png"
                     alt="CRM Integration"
                     width={400}
                     height={250}
@@ -538,11 +538,11 @@ export default function LearnMore() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f0f0f0] to-[#c0c0c0] opacity-20 blur-xl rounded-3xl"></div>
               <div className="relative bg-white p-6 rounded-3xl border border-gray-200 shadow-lg">
                 <Image
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/pendnt-lock.png"
                   alt="Privacy and Security"
                   width={500}
                   height={400}
-                  className="w-full h-auto"
+                  className="w-full h-auto p-16"
                 />
               </div>
             </div>
