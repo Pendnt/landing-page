@@ -23,8 +23,8 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  inquiryType: z.string({
-    required_error: "Please select an inquiry type.",
+  inquiryType: z.string().refine(s => s !== "", {
+    message: "Please select an inquiry type.",
   }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(1000, {
     message: "Message cannot exceed 1000 characters.",
@@ -48,9 +48,7 @@ export default function Contact() {
     },
   })
 
-  // TODO
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -63,7 +61,6 @@ export default function Contact() {
         throw new Error(errText || "Failed to submit");
       }
 
-      // success!
       setIsSubmitted(true);
     } catch (err: any) {
       console.error("Submission error:", err);

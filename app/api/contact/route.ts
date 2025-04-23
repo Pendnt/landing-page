@@ -6,8 +6,8 @@ const schema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  inquiryType: z.string({
-    required_error: "Please select an inquiry type.",
+  inquiryType: z.string().refine(s => s !== "Select inquiry type", {
+    message: "Please select an inquiry type.",
   }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(1000, {
     message: "Message cannot exceed 1000 characters.",
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     mg.messages.create(process.env.MAILGUN_DOMAIN!, {
         from: `${data.name} <contact@${process.env.MAILGUN_DOMAIN!}>`,
         to: process.env.MY_RECEIVING_EMAIL!,
-        subject: `Pendnt Contact Form: ${data.subject}`,
+        subject: `Pendnt Contact Form: ${data.subject}. Inquiry Type: ${data.inquiryType}`,
         text: `${data.subject}\n\n${data.message}\n\nFrom: ${data.email}`,
         html: `
             <h1>${data.subject}</h1>
